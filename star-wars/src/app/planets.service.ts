@@ -6,12 +6,12 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({
   providedIn: 'root'
 })
-export class ShipsService {
-  private shipsUrl = 'https://swapi.dev/api/starships';
+export class PlanetsService {
+  private planetsUrl = 'https://swapi.dev/api/planets';
 
   constructor(private http: HttpClient) { }
 
-  getShips() {
-    return this.http.get(this.shipsUrl);
+  getPlanets() {
+    return this.http.get(this.planetsUrl);
   }
 }

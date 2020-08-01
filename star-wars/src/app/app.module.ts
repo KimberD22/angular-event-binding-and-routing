@@ -4,15 +4,19 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ShipsComponent } from './ships/ships.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { PlanetsComponent } from './planets/planets.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ShipsComponent
+    ShipsComponent,
+    PlanetsComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
