@@ -1,3 +1,14 @@
-<div *ngFor="let ship of ships.results">
+<div *ngFor="let ship of ships.results"
+  (click)="chooseShip(ship)">
   <h1>The ships name is: {{ ship.name }}</h1>
 </div>
+
+<div *ngIf="chosenShip; else elseBlock">
+  <h1>{{ chosenShip.name }}</h1>
+  <p>{{ chosenShip.model }}</p>
+</div>
+<ng-template #elseBlock>
+  <div>
+    <p>Please choose an option from the above list</p>
+  </div>
+</ng-template>

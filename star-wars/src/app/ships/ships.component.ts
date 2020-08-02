@@ -24,4 +24,10 @@ export class ShipsComponent implements OnInit {
       })
   }
 
+  chosenShip = null;
+  chooseShip(ship) {
+    this.chosenShip = ship;
+    console.log(ship);
+  }
+
 }
