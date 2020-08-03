@@ -130,7 +130,7 @@ export class ExampleComponent implements OnInit {
 }
 
 ```
-<details>
+</details>
 
 Let's jump into building out some examples...
 Run `git checkout conditional-rendering` to get to the correct placement in our code!
