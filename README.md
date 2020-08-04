@@ -2,6 +2,13 @@
 
 ## Angular directives, event binding, and services
 
+### Learning Objectives - Routing
+* What is routing?
+* How could we implement routing in Angular?
+* When could we use it?
+* How could we use it with Angular?
+* How do I choose which components to render?
+
 ### Learning Objectives - Event binding
 * What is event binding? (Review)
 * How do we use event binding with Angular?
@@ -18,6 +25,64 @@
 * When to use them?
 * How to create them?
 * How to use them?
+
+### Angular Routing
+In all front end applications we have the ability to route our pages.
+
+What this means is that we could change the path/url of the website in order to deliver gradually more specfic content in the same website.
+For example, facebook.com and facebook.com/messages will most likely render completely different information. (facebook.com/messages might not exist but we could take a guess as to what is rendering).
+
+Every front end library or framework has a way to route the applications itself. For Angular we have built in modules that we could use in order to create the routing functionality.
+
+In order to use this module/functionality we have to run a command in our Angular application that will generate the imports for us and the files we need to create the routing functionality and settings.
+
+`ng generate module app-routing --module=app`
+What this does is generate the files used for Angular routing and import the modules that we need into the array of AppModule.
+
+One of the files that were generated was the `app-routing.module.ts` file. It currently carries some boilerplate code (most of which we don't need) that looks like this.
+
+```typescript
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@NgModule({
+  imports: [
+    CommonModule
+  ],
+  declarations: []
+})
+export class AppRoutingModule { }
+```
+
+We are going to replace the file with something that looks _like_ this (but not exactly this).
+```typescript
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HeroesComponent } from './heroes/heroes.component';
+
+const routes: Routes = [
+  { path: 'heroes', component: HeroesComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+```
+
+In the code snippet above we imported the RouterModule and Routes classes from the `@angular/router` module. This will allow use to make use of the Angular code base in order to streamline our code editing process.
+
+What the RouterModule does is take in all of the information we give it and let our application know of all the choices we made in order to declare how our application routing is going to work. We need the Routes class in order to be able to declare what each individual route (url path) is going be. And which component is going to be rendered at each route.
+
+We are going to make a sorta kinda navigation bar for our star-wars Angular application that we'll use today. I will make the first Route and then you will create the other 2.
+
+I create
+* Home route - path = "/"
+
+You create
+* A route for ships that renders the ships component - path = "/ships"
+* A route for planets that renders the planets component - path = "/planets"
 
 ### Event binding
 As we remember from previous lectures in Module 1 we discussed that most of what web applications do in the browser is react to some user actions. These actions could be described as events. We use events, event listeners, and event binding in the entirety of front end development. It is framework agnostic (meaning that these terms aren't exclusive to a framework or library). Since Angular also works to create the front end of websites. Angular also has it's own way to create and bind events. We don't have to type out as much code as we did when we used Javascript or jQuery.
