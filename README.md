@@ -84,6 +84,10 @@ You create
 * A route for ships that renders the ships component - path = "/ships"
 * A route for planets that renders the planets component - path = "/planets"
 
+After we create the route paths in our routing-module file AND decide which components would render at each path we could now render the routing component into our applications DOM. For this we use the `router-outlet` component. Wherever we place the `router-outlet` component we will be able to see the desired component at the desired path
+
+Now that we have the router-outlet rendered we have to be able to go from one path to another within our application. We do this with the `routerLink` attribute attached to an anchor tag. NOT the `href` attribute. The `href` attribute will re render the entire page on click which defeats the purpose of having a Single Page Application.
+
 ### Event binding
 As we remember from previous lectures in Module 1 we discussed that most of what web applications do in the browser is react to some user actions. These actions could be described as events. We use events, event listeners, and event binding in the entirety of front end development. It is framework agnostic (meaning that these terms aren't exclusive to a framework or library). Since Angular also works to create the front end of websites. Angular also has it's own way to create and bind events. We don't have to type out as much code as we did when we used Javascript or jQuery.
 
